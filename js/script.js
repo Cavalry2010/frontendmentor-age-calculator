@@ -52,18 +52,26 @@ class AgeCalc {
     const message =
       placeholder === "DD" ? "Must be a valid day" : "Must be a valid month";
     if (placeholder === "YYYY") {
-      if (inputValue > this.currentDate.getFullYear()) {
+      if (!Number.isInteger(inputValue)) {
+        this.showError(child, "Must be a valid year");
+        return false;
+      } else if (inputValue > this.currentDate.getFullYear()) {
         this.showError(child, "Must be in the past");
         return false;
       } else {
         return true;
       }
     }
-    if (placeholder !== "YYYY" && inputValue >= 1 && inputValue <= maxRange) {
-      return true;
-    } else {
-      this.showError(child, message);
-      return false;
+    if (placeholder !== "YYYY") {
+      if (!Number.isInteger(inputValue)) {
+        this.showError(child, message);
+        return false;
+      } else if (inputValue >= 1 && inputValue <= maxRange) {
+        return true;
+      } else {
+        this.showError(child, message);
+        return false;
+      }
     }
   }
 
@@ -109,9 +117,33 @@ class AgeCalc {
 
   showResults(results) {
     const resultsFormat = results.reverse();
-    document.querySelector(".num-year").textContent = resultsFormat[0];
-    document.querySelector(".num-month").textContent = resultsFormat[1];
-    document.querySelector(".num-day").textContent = resultsFormat[2];
+    let day = 0;
+    let month = 0;
+    let year = 0;
+
+    const intervals = [
+      setInterval(function () {
+        if (day <= resultsFormat[2]) {
+          document.querySelector(".num-day").textContent = day;
+          day++;
+        }
+      }, 25),
+      setInterval(function () {
+        if (month <= resultsFormat[1]) {
+          document.querySelector(".num-month").textContent = month;
+          month++;
+        }
+      }, 25),
+      setInterval(function () {
+        if (year <= resultsFormat[0]) {
+          document.querySelector(".num-year").textContent = year;
+          year++;
+        } else {
+          return;
+        }
+      }, 25),
+    ];
+    intervals.forEach((interval) => interval);
   }
 }
 
