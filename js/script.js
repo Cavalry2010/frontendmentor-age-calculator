@@ -87,7 +87,7 @@ class AgeCalc {
       "-" +
       difference.getFullYear()
     ).split("-");
-    const daysPassed = Number(Math.abs(differenceFormat[0]));
+    const daysPassed = Number(Math.abs(differenceFormat[0]) - 1);
     const monthsPassed = Number(Math.abs(differenceFormat[1]) - 1);
     const yearsPassed = Number(Math.abs(differenceFormat[2]) - 1970);
 
