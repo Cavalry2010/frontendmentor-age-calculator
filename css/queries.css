@@ -1,0 +1,67 @@
+@media (max-width: 26em) {
+  .calculator-box {
+    max-width: 34.5rem;
+    padding: 5rem 2.6rem;
+    padding-bottom: 4.5rem;
+    border-radius: 20px;
+    border-bottom-right-radius: 100px;
+  }
+
+  .inputs-box {
+    padding-bottom: 4.5rem;
+    position: relative;
+  }
+
+  .form-invalid {
+    padding-bottom: 5.5rem;
+  }
+
+  .form-invalid .submit-btn {
+    transform: translateY(3.3rem);
+  }
+
+  .date-form {
+    gap: 1.5rem;
+    justify-content: center;
+  }
+
+  .date-form div {
+    max-width: 8.8rem;
+  }
+
+  .input-label {
+    font-size: 1.2rem;
+  }
+
+  .date-form input {
+    font-size: 2rem;
+    max-width: 8.8rem;
+    padding: 1rem 1.4rem;
+  }
+
+  .form-message {
+    font-size: 0.78rem;
+  }
+
+  .submit-btn {
+    position: absolute;
+    margin: 0;
+    bottom: 0;
+    height: 6.5rem;
+    width: 6.5rem;
+    transform: translateY(3.3rem);
+  }
+
+  .btn-icon {
+    width: 45%;
+  }
+
+  .results-box {
+    margin-top: 7rem;
+  }
+
+  .result {
+    font-size: 5.2rem;
+    line-height: 1.1;
+  }
+}

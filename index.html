@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;1,400;1,800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/queries.css" />
+
+    <title>Frontend Mentor | Age calculator app</title>
+    <script defer src="./js/script.js"></script>
+    <script
+      defer
+      src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+    ></script>
+  </head>
+  <body>
+    <main>
+      <div class="container align-center">
+        <h1 class="sr-only">Age Calculator app</h1>
+        <div class="calculator-box">
+          <div class="inputs-box">
+            <form class="date-form" name="date-form">
+              <div>
+                <label for="date-day" class="input-label">Day</label>
+                <input
+                  id="date-day"
+                  type="number"
+                  placeholder="DD"
+                  name="date-day"
+                  required
+                  aria-describedby="day-alert"
+                />
+                <p
+                  id="day-alert"
+                  class="form-message day-message"
+                  aria-live="polite"
+                >
+                  Must be a valid day
+                </p>
+              </div>
+              <div>
+                <label for="date-month" class="input-label">Month</label>
+                <input
+                  id="date-month"
+                  type="number"
+                  placeholder="MM"
+                  name="date-month"
+                  required
+                  aria-describedby="month-alert"
+                />
+                <p
+                  id="month-alert"
+                  class="form-message month-message"
+                  aria-live="polite"
+                >
+                  Must be a valid month
+                </p>
+              </div>
+              <div>
+                <label for="date-year" class="input-label">Year</label>
+                <input
+                  id="date-year"
+                  type="number"
+                  placeholder="YYYY"
+                  name="date-year"
+                  required
+                  aria-describedby="year-alert"
+                />
+                <p
+                  id="year-alert"
+                  class="form-message year-message"
+                  aria-live="polite"
+                >
+                  Must be in the past
+                </p>
+              </div>
+              <button class="submit-btn" type="submit" aria-label="Submit">
+                <img
+                  class="btn-icon"
+                  src="./assets/images/icon-arrow.svg"
+                  alt=""
+                />
+              </button>
+            </form>
+          </div>
+          <div class="results-box">
+            <p class="result"><span class="number num-year">- -</span>years</p>
+            <p class="result">
+              <span class="number num-month">- -</span>months
+            </p>
+            <p class="result"><span class="number num-day">- -</span>days</p>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <div class="attribution">
+        Challenge by
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+          >Frontend Mentor</a
+        >. Coded by <a href="#">Alejandro Perdomo</a>.
+      </div>
+    </footer>
+  </body>
+</html>
