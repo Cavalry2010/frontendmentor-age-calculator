@@ -3,11 +3,14 @@
 class AgeCalc {
   inputsBox = document.querySelector(".inputs-box");
   form = document.querySelector(".date-form");
+  dayInterval;
+  monthInterval;
+  yearInterval;
 
   constructor() {
     this.currentDate = new Date();
     this.form.setAttribute("novalidate", "novalidate");
-    this.form.addEventListener("submit", this.checkForm.bind(this));
+    this.form.addEventListener("input", this.checkForm.bind(this));
   }
 
   checkForm(e) {
@@ -57,6 +60,8 @@ class AgeCalc {
         return false;
       } else if (inputValue > this.currentDate.getFullYear()) {
         this.showError(child, "Must be in the past");
+        return false;
+      } else if (inputValue < 1000) {
         return false;
       } else {
         return true;
@@ -121,29 +126,32 @@ class AgeCalc {
     let month = 0;
     let year = 0;
 
-    const intervals = [
-      setInterval(function () {
+    const startTimer = function () {
+      clearInterval(this.dayInterval);
+      clearInterval(this.monthInterval);
+      clearInterval(this.yearInterval);
+
+      this.dayInterval = setInterval(function () {
         if (day <= resultsFormat[2]) {
           document.querySelector(".num-day").textContent = day;
           day++;
         }
-      }, 25),
-      setInterval(function () {
+      }, 25);
+      this.monthInterval = setInterval(function () {
         if (month <= resultsFormat[1]) {
           document.querySelector(".num-month").textContent = month;
           month++;
         }
-      }, 25),
-      setInterval(function () {
+      }, 25);
+      this.yearInterval = setInterval(function () {
         if (year <= resultsFormat[0]) {
           document.querySelector(".num-year").textContent = year;
           year++;
-        } else {
-          return;
         }
-      }, 25),
-    ];
-    intervals.forEach((interval) => interval);
+      }, 25);
+    }.bind(this);
+
+    startTimer();
   }
 }
 
